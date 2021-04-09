@@ -8,7 +8,7 @@
 
 { pkgs ? import <nixpkgs> { } }:
 
-{
+rec {
   # The `lib`, `modules`, and `overlay` names are special
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
@@ -16,4 +16,5 @@
 
   firefox-addons = pkgs.recurseIntoAttrs (pkgs.callPackage ./pkgs/firefox-addons { }); 
   chromium-extensions = pkgs.callPackage ./pkgs/chromium-extensions { };
+  jetbrains = import ./pkgs/jetbrains { inherit pkgs; inherit lib; };
 }

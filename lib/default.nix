@@ -22,5 +22,5 @@ with pkgs.lib; with builtins; rec {
               key = splitString "." (head kv);
               val = toValue (lists.last kv);
           in lists.foldr (k: v: { ${k} = v; }) val key;
-    in str: foldl' (recursiveUpdate) {} (map parseLine (filter isEntry (splitString "\n" str)));
+    in str: foldl' recursiveUpdate {} (map parseLine (filter isEntry (splitString "\n" str)));
 }
