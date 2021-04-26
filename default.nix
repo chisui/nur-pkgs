@@ -16,5 +16,4 @@ rec {
 
   firefox-addons = pkgs.recurseIntoAttrs (pkgs.callPackage ./pkgs/firefox-addons { }); 
   chromium-extensions = pkgs.callPackage ./pkgs/chromium-extensions { };
-  jetbrains = import ./pkgs/jetbrains { inherit pkgs; inherit lib; };
 }
